@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::get('/pets', 'PetsController@index');
+Route::post('/pets', 'PetsController@store');
+Route::delete('/pets/{id}', 'PetsController@destroy');
+
+Route::post('/attendances', 'AttendancesController@store');
